@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "Set application.conf for DotCloud..."
+cp conf/application.conf.dotcloud conf/application.conf
