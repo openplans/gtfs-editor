@@ -1,5 +1,5 @@
 www:
   type: java
-  approot: deploy
+  approot: ../deploy
 db:
   type: postgis
