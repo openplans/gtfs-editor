@@ -1,5 +1,4 @@
 www:
   type: java
-  approot: app
 db:
   type: postgis
