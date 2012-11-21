@@ -3,7 +3,7 @@ var GtfsEditor = GtfsEditor || {};
 (function(G, $, ich) {
   G.RouteInfoView = Backbone.View.extend({
     events: {
-      'click #route-save-btn': 'save',
+      'submit form': 'save',
       'click #route-cancel-btn': 'cancel'
     },
 
@@ -41,6 +41,12 @@ var GtfsEditor = GtfsEditor || {};
         .attr('selected', true);
 
       this.$el.html($tpl);
+
+      this.$('input, select, textarea').popover({
+        placement: 'right',
+        trigger: 'focus'
+      });
+
       return this;
     },
 
