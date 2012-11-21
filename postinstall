@@ -1,19 +1,17 @@
 #!/bin/sh
 
-cd /home/dotcloud
-echo "Create approot directory"
-mkdir approot
+cd ~
 
 echo "Install Play 1.2.5"
 wget http://download.playframework.org/releases/play-1.2.5.zip
 unzip play-1.2.5.zip
 
 echo "Use DotCloud version of application.conf"
-cd /home/dotcloud/code/
-cp /home/dotcloud/code/conf/application.conf.dotcloud /home/dotcloud/code/conf/application.conf
+cd ~/code/
+cp ~/code/conf/application.conf.dotcloud ~/code/conf/application.conf
 
 echo "Apply and play database evolutions"
-/home/dotcloud/play-1.2.5/play evolutions:apply
+../play-1.2.5/play evolutions:apply
 
 echo "Deploy the war to the approot"
-/home/dotcloud/play-1.2.5/play war -o ../approot
+../play-1.2.5/play war -o ../approot
