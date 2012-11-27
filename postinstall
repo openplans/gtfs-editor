@@ -1,13 +1,14 @@
 #!/bin/sh
 
+cd ~
+
 echo "Make approot directory"
 mkdir ~/approot
 
 echo "Repoint webapps to approot"
-ln -sf approot webapps
+ln -sf ~/approot ~/webapps
 
 echo "Install Play 1.2.5"
-cd ~
 wget http://download.playframework.org/releases/play-1.2.5.zip
 unzip play-1.2.5.zip
 
@@ -19,3 +20,4 @@ echo "Apply and play database evolutions"
 ../play-1.2.5/play evolutions:apply
 
 echo "Deploy the war to the approot"
+../play-1.2.5/play war -o ../approot/gtfs --zip
