@@ -17,7 +17,7 @@ echo "Apply and play database evolutions"
 ../play-1.2.5/play evolutions:apply
 
 echo "Deploy the war to temp"
-../play-1.2.5/play war -o ../temp/gtfs --zip
+../play-1.2.5/play war -o ../temp/root --zip
 
 echo "Copy war to webapps"
-mv ~/temp/gtfs* ~/webapps/
+mv ~/temp/root* ~/webapps/
