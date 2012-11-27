@@ -9,7 +9,7 @@ mkdir ~/temp
 
 echo "Install Play 1.2.5"
 wget http://download.playframework.org/releases/play-1.2.5.zip
-unzip -ql play-1.2.5.zip
+unzip -q play-1.2.5.zip
 
 echo "Use DotCloud version of application.conf"
 cd ~/code/
@@ -20,6 +20,11 @@ echo "Apply and play database evolutions"
 
 echo "Deploy the war to temp"
 ../play-1.2.5/play war -o ../temp/gtfs --zip
+
+echo `pwd`
+
+echo `ll ~`
+echo 'll ~/temp/'
 
 echo "Copy war to webapps"
 mv ~/temp/gtfs.war ~/webapps/
