@@ -2,8 +2,6 @@
 
 cd ~
 
-echo `pwd`
-
 echo "Make temp directory"
 mkdir ~/temp
 
@@ -21,10 +19,5 @@ echo "Apply and play database evolutions"
 echo "Deploy the war to temp"
 ../play-1.2.5/play war -o ../temp/gtfs --zip
 
-echo `pwd`
-
-echo `ll ~`
-echo 'll ~/temp/'
-
 echo "Copy war to webapps"
-mv ~/temp/gtfs.war ~/webapps/
+mv ~/temp/gtfs* ~/webapps/
