@@ -19,4 +19,4 @@ echo "Apply and play database evolutions"
 ../play-1.2.5/play evolutions:apply
 
 echo "Deploy the war to the approot"
-../play-1.2.5/play war -o ~/approot/
+../play-1.2.5/play war -o ~/approot/gtfs --zip
