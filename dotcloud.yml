@@ -1,5 +1,4 @@
 www:
   type: java
-  prebuild: mkdir ~/approot; ln -sf approot webapps
 db:
   type: postgis
