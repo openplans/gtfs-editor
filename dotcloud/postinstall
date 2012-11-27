@@ -2,7 +2,9 @@
 
 cd ~
 
-echo "Make approot directory"
+echo `pwd`
+
+echo "Make temp directory"
 mkdir ~/temp
 
 echo "Install Play 1.2.5"
