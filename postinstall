@@ -3,14 +3,11 @@
 cd ~
 
 echo "Make approot directory"
-mkdir ~/approot
-
-echo "Repoint webapps to approot"
-ln -sf ~/approot ~/webapps
+mkdir ~/temp
 
 echo "Install Play 1.2.5"
 wget http://download.playframework.org/releases/play-1.2.5.zip
-unzip play-1.2.5.zip
+unzip -ql play-1.2.5.zip
 
 echo "Use DotCloud version of application.conf"
 cd ~/code/
@@ -19,5 +16,8 @@ cp ~/code/conf/application.conf.dotcloud ~/code/conf/application.conf
 echo "Apply and play database evolutions"
 ../play-1.2.5/play evolutions:apply
 
-echo "Deploy the war to the approot"
-../play-1.2.5/play war -o ../approot/gtfs --zip
+echo "Deploy the war to temp"
+../play-1.2.5/play war -o ../temp/gtfs --zip
+
+echo "Copy war to webapps"
+mv ~/temp/gtfs.war ~/webapps/
