@@ -88,11 +88,12 @@ date.format=yyyy-MM-dd
 # db=mysql://user:pwd@host/database
 #
 # To connect to a local PostgreSQL9 database, use:
- db.url=jdbc:postgresql://${DOTCLOUD_DB_SQL_HOST}/gtfs_editor
- db.driver=org.postgresql.Driver
- db.user=${DOTCLOUD_DB_SQL_LOGIN}
- db.pass=${DOTCLOUD_DB_SQL_PASSWORD}
- db.port=${DOTCLOUD_DB_SQL_PORT}
+db=postgres://${DOTCLOUD_DB_SQL_LOGIN}:${DOTCLOUD_DB_SQL_PASSWORD}@${DOTCLOUD_DB_SQL_HOST}:${DOTCLOUD_DB_SQL_PORT}/gtfs_editor
+# db.url=jdbc:postgresql://${DOTCLOUD_DB_SQL_HOST}/gtfs_editor
+# db.driver=org.postgresql.Driver
+# db.user=${DOTCLOUD_DB_SQL_LOGIN}
+# db.pass=${DOTCLOUD_DB_SQL_PASSWORD}
+# db.port=${DOTCLOUD_DB_SQL_PORT}
 #
 # If you need a full JDBC configuration use the following :
 # db.url=jdbc:postgresql:database_name
