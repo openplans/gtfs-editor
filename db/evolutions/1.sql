@@ -35,19 +35,6 @@ CREATE TABLE "gisroutealignment" (
 );
 
 -- ----------------------------
---  Table structure for "play_evolutions"
--- ----------------------------
-CREATE TABLE "play_evolutions" (
-	"id" int4 NOT NULL,
-	"hash" varchar(255) NOT NULL,
-	"applied_at" timestamp(6) NOT NULL,
-	"apply_script" text,
-	"revert_script" text,
-	"state" varchar(255),
-	"last_problem" text
-);
-
--- ----------------------------
 --  Table structure for "trippattern_trippatternstop"
 -- ----------------------------
 CREATE TABLE "trippattern_trippatternstop" (
@@ -382,11 +369,6 @@ ALTER TABLE "gisroutesegment" ADD CONSTRAINT "gisroutesegment_pkey" PRIMARY KEY 
 --  Primary key structure for table "gisroutealignment"
 -- ----------------------------
 ALTER TABLE "gisroutealignment" ADD CONSTRAINT "gisroutealignment_pkey" PRIMARY KEY ("id") NOT DEFERRABLE INITIALLY IMMEDIATE;
-
--- ----------------------------
---  Primary key structure for table "play_evolutions"
--- ----------------------------
-ALTER TABLE "play_evolutions" ADD CONSTRAINT "play_evolutions_pkey" PRIMARY KEY ("id") NOT DEFERRABLE INITIALLY IMMEDIATE;
 
 -- ----------------------------
 --  Primary key structure for table "servicecalendardate"
