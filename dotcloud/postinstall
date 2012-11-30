@@ -9,9 +9,10 @@ echo "Install Play 1.2.5"
 wget http://download.playframework.org/releases/play-1.2.5.zip
 unzip -q play-1.2.5.zip
 
-echo "Use DotCloud version of application.conf"
+echo "Use DotCloud versions of config files"
 cd ~/code/
 cp ~/code/conf/application.conf.dotcloud ~/code/conf/application.conf
+cp ~/code/public/javascripts/config.js.template ~/code/public/javascripts/config.js
 
 echo "Apply and play database evolutions"
 ../play-1.2.5/play evolutions:apply
