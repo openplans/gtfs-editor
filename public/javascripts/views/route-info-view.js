@@ -3,7 +3,7 @@ var GtfsEditor = GtfsEditor || {};
 (function(G, $, ich) {
   G.RouteInfoView = Backbone.View.extend({
     events: {
-      'submit form': 'save',
+      'submit .route-info-form': 'save',
       'click #route-cancel-btn': 'cancel'
     },
 
@@ -52,22 +52,13 @@ var GtfsEditor = GtfsEditor || {};
 
     cancel: function(evt) {
       evt.preventDefault();
-      console.log('cancel', arguments);
-
       this.onCancel(this.model);
     },
 
     save: function(evt){
       evt.preventDefault();
 
-      var data = this.$('form').serializeObject(),
-          $uncheckedCheckboxes = this.$('[type="checkbox"]:not(:checked)');
-
-      $uncheckedCheckboxes.each(function(i, el) {
-        if (el.name) {
-          data[el.name] = false;
-        }
-      });
+      var data = G.Utils.serializeForm(this.$('form'));
 
       if (this.model) {
         // This seems redundant, but we need to call set first so that the
@@ -78,18 +69,22 @@ var GtfsEditor = GtfsEditor || {};
           wait: true,
           success: _.bind(function() {
             this.onSave(this.model);
+            G.Utils.success('Route successfully saved');
           }, this),
-          error: function() { console.log('Oh noes! That save didn\'t work.'); }
+          error: function() {
+            G.Utils.error('Route save failed');
+          }
         });
       } else {
         this.model = this.collection.create(data, {
           wait: true,
           success: _.bind(function() {
             this.onSave(this.model);
+            G.Utils.success('Route successfully created');
           }, this),
           error: _.bind(function() {
             this.model = null;
-            console.log('Oh noes! That create didn\'t work.');
+            G.Utils.error('Route save failed');
           }, this)
         });
 

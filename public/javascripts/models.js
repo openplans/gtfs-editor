@@ -43,8 +43,8 @@ var GtfsEditor = GtfsEditor || {};
       routeDesc: null,
       routeType: null,
       routeUrl: null,
-      routeColor: null,
-      routeTextColor: null,
+      routeColor: '004080',
+      routeTextColor: 'FFFFFF',
       agency: null
     }
   });
@@ -67,6 +67,7 @@ var GtfsEditor = GtfsEditor || {};
       agency: null,
       locationType: null,
       parentStation: null,
+      majorStop: false,
       location: null
     },
     // This function serves to allow stringified JSON as a valid input. A bit

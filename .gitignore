@@ -1,4 +1,6 @@
+public/javascripts/config.js
 conf/application.conf
 tmp
 eclipse
 .classpath
+*~

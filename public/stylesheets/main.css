@@ -1,3 +1,15 @@
 body {
-  padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+  padding-top: 50px;
+}
+
+#tools-nav  {
+  margin-bottom: 5px;
+}
+
+.message {
+  position: fixed;
+  top: 1em;
+  left: 25%;
+  right: 25%;
+  z-index: 10000;
 }
