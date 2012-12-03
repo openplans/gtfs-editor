@@ -122,7 +122,7 @@ jpa.dialect=org.hibernatespatial.postgis.PostgisDialect
 #
 # Specify the ddl generation pattern to use. Set to none to disable it
 # (default to update in DEV mode, and none in PROD mode):
- jpa.ddl=update
+jpa.ddl=none
 #
 # Debug SQL statements (logged using DEBUG level):
 # jpa.debugSQL=true
