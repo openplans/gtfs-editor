@@ -1,6 +1,11 @@
 # --- !Ups
 
 -- ----------------------------
+--  Sequence structure for "hibernate_sequence"
+-- ----------------------------
+CREATE SEQUENCE "hibernate_sequence" INCREMENT 1 START 125 MAXVALUE 9223372036854775807 MINVALUE 1 CACHE 1;
+
+-- ----------------------------
 --  Table structure for "gtfssnapshotmerge"
 -- ----------------------------
 CREATE TABLE "gtfssnapshotmerge" (
@@ -478,30 +483,31 @@ ALTER TABLE "gisexport" ADD CONSTRAINT "gisexport_pkey" PRIMARY KEY ("id") NOT D
 
 # --- !Downs
 
-DROP TABLE "gtfssnapshotmerge";
-DROP TABLE "gisroutesegment";
-DROP TABLE "gisroutealignment";
-DROP TABLE "trippattern_trippatternstop";
-DROP TABLE "servicecalendardate";
-DROP TABLE "tripshape";
-DROP TABLE "gtfssnapshot";
-DROP TABLE "gisroutecontrolpoint";
-DROP TABLE "trippattern";
-DROP TABLE "gisstop";
-DROP TABLE "gisuploadfield";
-DROP TABLE "gtfssnapshotvalidation";
-DROP TABLE "gisroutecontrolpointsequence";
-DROP TABLE "gtfssnapshotexport";
-DROP TABLE "trip";
-DROP TABLE "gisroute";
-DROP TABLE "agency";
-DROP TABLE "route";
-DROP TABLE "servicecalendar";
-DROP TABLE "trippatternstop";
-DROP TABLE "gtfssnapshotmergetask";
-DROP TABLE "stop";
-DROP TABLE "gisupload";
-DROP TABLE "gisexport_agency";
-DROP TABLE "stoptime";
-DROP TABLE "gtfssnapshotexport_agency";
-DROP TABLE "gisexport";
+DROP SEQUENCE IF EXISTS "hibernate_sequence";
+DROP TABLE IF EXISTS "gtfssnapshotmerge";
+DROP TABLE IF EXISTS "gisroutesegment";
+DROP TABLE IF EXISTS "gisroutealignment";
+DROP TABLE IF EXISTS "trippattern_trippatternstop";
+DROP TABLE IF EXISTS "servicecalendardate";
+DROP TABLE IF EXISTS "tripshape";
+DROP TABLE IF EXISTS "gtfssnapshot";
+DROP TABLE IF EXISTS "gisroutecontrolpoint";
+DROP TABLE IF EXISTS "trippattern";
+DROP TABLE IF EXISTS "gisstop";
+DROP TABLE IF EXISTS "gisuploadfield";
+DROP TABLE IF EXISTS "gtfssnapshotvalidation";
+DROP TABLE IF EXISTS "gisroutecontrolpointsequence";
+DROP TABLE IF EXISTS "gtfssnapshotexport";
+DROP TABLE IF EXISTS "trip";
+DROP TABLE IF EXISTS "gisroute";
+DROP TABLE IF EXISTS "agency";
+DROP TABLE IF EXISTS "route";
+DROP TABLE IF EXISTS "servicecalendar";
+DROP TABLE IF EXISTS "trippatternstop";
+DROP TABLE IF EXISTS "gtfssnapshotmergetask";
+DROP TABLE IF EXISTS "stop";
+DROP TABLE IF EXISTS "gisupload";
+DROP TABLE IF EXISTS "gisexport_agency";
+DROP TABLE IF EXISTS "stoptime";
+DROP TABLE IF EXISTS "gtfssnapshotexport_agency";
+DROP TABLE IF EXISTS "gisexport";
