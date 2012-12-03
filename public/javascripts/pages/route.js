@@ -4,7 +4,7 @@ var GtfsEditor = GtfsEditor || {};
   var _routeCollection = new G.Routes(),
       _stopCollection = new G.Stops(),
       _router,
-      _steps = ['info', 'stops', 'patterns', 'trips', 'review'],
+      _steps = ['info', 'stops', 'trippatterns', 'trips', 'review'],
       _views = {
         'info': function(model) {
           return new G.RouteInfoView({
@@ -14,8 +14,6 @@ var GtfsEditor = GtfsEditor || {};
             agencyId: _agencyId,
             onSave: function(model) {
               _router.navigate(model.id + '/stops', {trigger: true});
-            },
-            onCancel: function() {
             }
           });
         },
@@ -23,11 +21,18 @@ var GtfsEditor = GtfsEditor || {};
           return new G.RouteStopsView({
             el: '#route-step-content',
             collection: _stopCollection,
-            model: model,
+            model: model, //Route info model
             agencyId: _agencyId
           });
         },
-        'patterns': function() { return new Backbone.View(); },
+        'trippatterns': function(model) {
+          return new G.RouteTripPatternsView({
+            el: '#route-step-content',
+            model: model, //Route info model
+            stops: _stopCollection,
+            agencyId: _agencyId
+          });
+        },
         'trips': function() { return new Backbone.View(); },
         'review': function() { return new Backbone.View(); }
       };
@@ -38,6 +43,7 @@ var GtfsEditor = GtfsEditor || {};
     },
 
     initialize: function () {
+      // Fancy routes are not support above, so it's being done here.
       var stepRegex = new RegExp('^([^\/]+)?\/?('+_steps.join('|')+')?\/?$');
       this.route(stepRegex, 'setStep');
 
@@ -60,11 +66,13 @@ var GtfsEditor = GtfsEditor || {};
     setStep: function(id, step){
       var model;
 
+      // Handles when there is an id (existing route) or not
       if (!step) {
         step = id;
         id = null;
       }
 
+      // If this route exists already
       if (id) {
         model = _routeCollection.get(parseInt(id, 10));
 
@@ -79,6 +87,7 @@ var GtfsEditor = GtfsEditor || {};
       } else {
         this.disableDependentSteps();
 
+        // Updates the hrefs for each step link (id vs non-id)
         $('.route-link').each(function(i, el) {
           $(el).attr('href', '/route/' + $(el).attr('data-route-step'));
         });
